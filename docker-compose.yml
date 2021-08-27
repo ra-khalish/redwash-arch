@@ -1,0 +1,93 @@
+version: '3.8'
+
+networks:
+  web-network:
+  service-network:
+
+volumes:
+  mysql-data:
+  phpmyadmin-data:
+
+services:
+
+  redwash_web:
+    # build:
+    #   context: ./redwash-2
+    image: redwash_web:1.0
+    container_name: redwash_web
+    ports:
+      - 8084:80
+    restart: always
+    links:
+      - mysql_redwash
+    depends_on: 
+      - mysql_redwash
+      - phpmyadmin_redwash
+    networks:
+      - web-network
+      - service-network
+    working_dir: /var/www/html/redwash
+
+  mysql_redwash:
+    image: mysql:5.7.32
+    container_name: mysql_redwash
+    ports:
+      - 3308:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: db_redwash
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./redwash/assets/database/db_redwash.sql:/docker-entrypoint-initdb.d/db_redwash.sql
+    networks:
+      - web-network
+
+  phpmyadmin_redwash:
+    image: phpmyadmin/phpmyadmin:5.1.0
+    container_name: phpmyadmin_redwash
+    restart: always
+    links:
+      - mysql_redwash
+    environment:
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      PMA_HOST: mysql_redwash
+      PMA_PORT: 3306
+    ports:
+      - 8085:80
+    volumes:
+      - phpmyadmin-data:/var/www/html/
+    depends_on:
+      - mysql_redwash
+    networks:
+      - web-network
+
+# =====================
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    hostname: rabbit
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin
+      - RABBITMQ_DEFAULT_VHOST=mail
+    ports:
+      # local:container
+      - 5682:5672
+      - 15682:15672
+    networks:
+      - service-network
+
+  notification_service:
+    container_name: notification_service
+    image: notification_service:1.0
+    restart: on-failure 
+    volumes:
+      - ./notification_service/logs:/app/logs
+    depends_on:
+      - rabbitmq
+    networks:
+      - service-network
+    

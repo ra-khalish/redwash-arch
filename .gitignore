@@ -1,0 +1,194 @@
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+# End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,linux
+
+### Project ###
+notification_service/config/.env
+notification_service/logs/
+redwash.rar
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+notification_service/__pycache__/
+notification_service/*.py[cod]
+notification_service/*$py.class
+
+# C extensions
+notification_service/*.so
+
+# Distribution / packaging
+notification_service/.Python
+notification_service/build/
+notification_service/develop-eggs/
+notification_service/dist/
+notification_service/downloads/
+notification_service/eggs/
+notification_service/.eggs/
+notification_service/lib/
+notification_service/lib64/
+notification_service/parts/
+notification_service/sdist/
+notification_service/var/
+notification_service/wheels/
+notification_service/pip-wheel-metadata/
+notification_service/share/python-wheels/
+notification_service/*.egg-info/
+notification_service/.installed.cfg
+notification_service/*.egg
+notification_service/MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+notification_service/*.manifest
+notification_service/*.spec
+
+# Installer logs
+notification_service/pip-log.txt
+notification_service/pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+notification_service/htmlcov/
+notification_service/.tox/
+notification_service/.nox/
+notification_service/.coverage
+notification_service/.coverage.*
+notification_service/.cache
+notification_service/nosetests.xml
+notification_service/coverage.xml
+notification_service/*.cover
+notification_service/*.py,cover
+notification_service/.hypothesis/
+notification_service/.pytest_cache/
+notification_service/pytestdebug.log
+
+# Translations
+notification_service/*.mo
+notification_service/*.pot
+
+# Scrapy stuff:
+notification_service/.scrapy
+
+# Sphinx documentation
+notification_service/docs/_build/
+notification_service/doc/_build/
+
+# PyBuilder
+notification_service/target/
+
+# IPython
+notification_service/profile_default/
+notification_service/ipython_config.py
+
+# pyenv
+notification_service/.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+notification_service/__pypackages__/
+
+# Environments
+notification_service/.env
+notification_service/.venv
+notification_service/env/
+notification_service/venv/
+notification_service/ENV/
+notification_service/env.bak/
+notification_service/venv.bak/
+notification_service/pythonenv*
+
+# Rope project settings
+notification_service/.ropeproject
+
+# mkdocs documentation
+notification_service/site
+
+# mypy
+notification_service/.mypy_cache/
+notification_service/.dmypy.json
+notification_service/dmypy.json
+
+# Pyre type checker
+notification_service/.pyre/
+
+# pytype static type analyzer
+notification_service/.pytype/
+
+# profiling data
+notification_service/.prof
+
+### VisualStudioCode ###
+notification_service/.vscode/*
+notification_service/!.vscode/tasks.json
+notification_service/!.vscode/launch.json
+notification_service/*.code-workspace
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+notification_service/.history
+notification_service/.ionide
+
+
+
+### CodeIgniter ###
+redwash/config/development
+*/logs/log-*.php
+!*/logs/index.html
+*/cache/*
+!*/cache/index.html
+!*/cache/.htaccess
+
+
+#codeigniter 3
+redwash/application/logs/*
+redwash/!application/logs/index.html
+redwash/!application/logs/.htaccess
+redwash/vendor/
+redwash/.env
+
+### VisualStudioCode ###
+redwash/.vscode/*
+redwash/!.vscode/settings.json
+redwash/!.vscode/tasks.json
+redwash/!.vscode/launch.json
+redwash/!.vscode/extensions.json
+redwash/*.code-workspace
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+redwash/.history
